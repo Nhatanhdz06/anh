@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Sách Cũ</title>
+    <link rel="stylesheet" href="sachcu.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>    
+    <header>
+        <img src="./image/anh/anh bia.jpg" alt="Ảnh Bìa" class="banner">
+        <nav>
+            <img src="./image/anh/logo.png" alt="Logo" class="logo">
+            <a href="Trang chủ.html">Trang Chủ</a>
+            <a href="contact.html">Sản Phẩm</a>
+            <a href="categories.html">Mục Lục</a>
+            <span id="user-info"></span>
+            <a id="login-link" href="đăng nhập.html">Đăng nhập / Đăng ký</a>
+            <button id="cart-btn"> Giỏ Hàng</button>
+            <button id="logout-btn" style="display:none;">Đăng Xuất</button>
+        </nav>
+    </header>
+
+    <div class="container" id="book-list">
+        
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Giỏ Hàng</h2>
+            <ul id="cart-items"></ul>
+            <button id="clear-cart">Xóa Toàn Bộ</button>
+            <button id="checkout-btn">Thanh Toán</button>
+        </div>
+    </div>
+    <footer>
+        <p> Địa chỉ: Đường QKA , TP.Hà Nội </p>
+        <p> Số điện thoại: 0066-771-508 </p>
+        <p> Email: nhatanhbansach@gmail.com </p>
+    </footer>
+</body>
+</html>

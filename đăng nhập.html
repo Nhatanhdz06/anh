@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập / Đăng Ký</title>
+    <link rel="stylesheet" href="sachcu.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng Nhập</h2>
+        <input type="text" id="login-username" placeholder="Tên tài khoản">
+        <input type="password" id="login-password" placeholder="Mật khẩu">
+        <button onclick="login()">Đăng Nhập</button>
+
+        <h2>Đăng Ký</h2>
+        <input type="text" id="register-username" placeholder="Tên tài khoản">
+        <input type="password" id="register-password" placeholder="Mật khẩu">
+        <button onclick="register()">Đăng Ký</button>
+
+        <br><br>
+        <a href="Trang chủ.html">Quay lại trang chủ</a>
+    </div>
+
+    <script>
+        function register() {
+            let username = $("#register-username").val();
+            let password = $("#register-password").val();
+            
+            if (username === "" || password === "") {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            let existingUser = users.find(user => user.username === username);
+            if (existingUser) {
+                alert("Tên tài khoản đã tồn tại! Vui lòng chọn tên khác.");
+                return;
+            }
+
+            users.push({ username, password });
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Đăng ký thành công! Vui lòng đăng nhập.");
+            window.location.href = "đăng nhập.html"; 
+        }
+
+        function login() {
+            let username = $("#login-username").val();
+            let password = $("#login-password").val();
+
+            if (username === "" || password === "") {
+                alert("Vui lòng nhập tài khoản và mật khẩu!");
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            let user = users.find(user => user.username === username && user.password === password);
+            if (!user) {
+                alert("Sai tài khoản hoặc mật khẩu!");
+                return;
+            }
+
+            localStorage.setItem("user", username);
+            alert("Đăng nhập thành công!");
+            window.location.href = "Trang chủ.html"; 
+        }
+    </script>
+</body>
+</html>
